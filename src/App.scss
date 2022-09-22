@@ -1,0 +1,99 @@
+/* -------------------------------- variables ------------------------------- */
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
+$primary_red: hsl(1, 90%, 64%);
+$primary_blue: hsl(219, 85%, 26%);
+$white: hsl(0, 0%, 100%);
+$very_light_grayish_blue: hsl(210, 60%, 98%);
+$light_grayish_blue_1: hsl(211, 68%, 94%);
+$light_grayish_blue_2: hsl(205, 33%, 90%);
+$grayish_blue: hsl(219, 14%, 63%);
+$dark_grayish_blue: hsl(219, 12%, 42%);
+$very_dark_blue: hsl(224, 21%, 14%);
+
+@font-face {
+  font-family: "Plus JakartaSans-Medium";
+
+  src: url(./assets/fonts/static/PlusJakartaSans-Medium.ttf);
+}
+
+
+/* ------------------------------ global styles ----------------------------- */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Plus JakartaSans-Medium";
+}
+
+@media (min-width: $sm) {
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $md) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $lg) {
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $xl) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $xxl) {
+  .container {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+}
+
+/* ---------------------------- component styles ---------------------------- */
+.notifications {
+  padding: 30px 16px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--left {
+      display: flex;
+      align-items: center;
+
+      .badge {
+        padding: 3px 10px;
+        margin-left: 10px;
+        color: $white;
+        background-color: $primary_blue;
+        border-radius: 6px;
+      }
+    }
+
+    .btn {
+      color: $dark_grayish_blue;
+      font-size: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
