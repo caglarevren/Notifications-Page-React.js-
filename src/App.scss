@@ -74,6 +74,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 
     &--left {
       display: flex;
@@ -89,11 +90,103 @@ body {
     }
 
     .btn {
+      padding: 8px 12px;
       color: $dark_grayish_blue;
       font-size: 16px;
       background: none;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
+
+      &:hover {
+        border: 1px solid $very_dark_blue;
+      }
     }
+  }
+}
+
+.notification {
+  padding: 10px;
+  background-color: $very_light_grayish_blue;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  &__person--img {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+
+    @media (min-width: $lg) {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__info {
+    font-size: 12px;
+
+    .person-name {
+      font-size: 14px;
+      font-weight: bold;
+
+      @media (min-width: $lg) {
+        font-size: 18px;
+      }
+    }
+
+    .person-comment {
+      color: $grayish_blue;
+
+      @media (min-width: $lg) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .circle {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    background-color: $primary_red;
+    border-radius: 50%;
+  }
+
+  &-date {
+    margin-top: 5px;
+    color: $grayish_blue;
+
+    @media (min-width: $lg) {
+      font-size: 14px;
+    }
+  }
+
+  .small-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__description {
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 60px;
+    color: $grayish_blue;
+    font-size: 13px;
+    border: 1px solid $grayish_blue;
+    border-radius: 6px;
   }
 }

@@ -6,14 +6,14 @@ import Person5 from '../assets/images/avatar-kimberly-smith.webp'
 import Person6 from '../assets/images/avatar-nathan-peterson.webp'
 import Person7 from '../assets/images/avatar-anna-kim.webp'
 
-export const persons = [
+const persons = [
   {
     id: 1,
     read: false,
     name: 'Mark Webber',
     picture: Person1,
     comment: 'reacted to your recent post My first tournament today!',
-    description: 'Description 1',
+    description: 'Person 1 notification description.',
     smallImg: false,
     date: '1m ago',
   },
@@ -23,7 +23,7 @@ export const persons = [
     name: 'Angela Gray',
     picture: Person2,
     comment: 'followed you',
-    description: 'Description 2',
+    description: 'Person 2 notification description.',
     smallImg: false,
     date: '5m ago',
   },
@@ -33,7 +33,7 @@ export const persons = [
     name: 'Jacob Thompson',
     picture: Person3,
     comment: 'has joined your group Chess Club',
-    description: 'Description 3',
+    description: 'Person 3 notification description.',
     smallImg: false,
     date: '1 day ago',
   },
@@ -43,7 +43,7 @@ export const persons = [
     name: 'Rizky Hasanuddin',
     picture: Person4,
     comment: 'sent you a private message',
-    description: 'Description 4',
+    description: 'Person 4 notification description.',
     smallImg: false,
     date: '5 days ago',
   },
@@ -53,7 +53,7 @@ export const persons = [
     name: 'Kimberly Smith',
     picture: Person5,
     comment: 'commented on your picture',
-    description: 'Description 5',
+    description: 'Person 5 notification description.',
     smallImg: true,
     date: '1 week ago',
   },
@@ -64,7 +64,7 @@ export const persons = [
     picture: Person6,
     comment:
       'reacted to your recent post 5 end-game strategies to increase your win rate',
-    description: 'Description 6',
+    description: 'Person 6 notification description.',
     smallImg: false,
     date: '2 weeks ago',
   },
@@ -74,8 +74,10 @@ export const persons = [
     name: 'Anna Kim',
     picture: Person7,
     comment: 'left the group Chess Club',
-    description: 'Description 7',
+    description: 'Person 7 notification description.',
     smallImg: false,
     date: '2 weeks ago',
   },
 ]
+
+export default persons
