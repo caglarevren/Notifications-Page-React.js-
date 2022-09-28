@@ -1,6 +1,6 @@
 import { NotificationCardProvider } from './context/NotificationContext'
 
-import Notifications from './components/Notifications.jsx'
+import Notifications from './components/Notifications'
 
 function App() {
   return (

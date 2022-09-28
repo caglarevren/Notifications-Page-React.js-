@@ -2,7 +2,16 @@ import React from 'react'
 
 import { useNotificationCard } from '../context/NotificationContext'
 
-import ChessImg from '../assets/images/image-chess.webp'
+type PersonInfoProps = {
+  id: number,
+  read: boolean,
+  name: string,
+  picture: string,
+  comment: string,
+  description: string,
+  smallImg: boolean,
+  date: string,
+}
 
 function Notification({
   id,
@@ -13,7 +22,7 @@ function Notification({
   description,
   smallImg,
   date,
-}) {
+}: PersonInfoProps) {
   /* --------------------------------- Context -------------------------------- */
   const { readNotification, showDescription } = useNotificationCard()
 
@@ -36,7 +45,7 @@ function Notification({
             <div className='notification-date'>{date}</div>
           </div>
         </div>
-        {smallImg && <img className='small-img' src={ChessImg} alt='chess' />}
+        {smallImg && <img className='small-img' src={require('../assets/images/image-chess.webp')} alt='chess' />}
       </div>
 
       {showDescription === id && (

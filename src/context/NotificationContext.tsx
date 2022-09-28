@@ -1,16 +1,41 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, ReactNode } from 'react'
 import Persons from '../data/data'
 
-const NotificationCardContext = createContext()
+/* ---------------------------------- Types --------------------------------- */
+type NotificationCardProviderProps = {
+  children: ReactNode
+}
+
+type PersonTypes = {
+  id: number,
+  read: boolean,
+  name: string,
+  picture: string,
+  comment: string,
+  description: string,
+  smallImg: boolean,
+  date: string,
+}
+
+type NotificationCardContextTypes = {
+  persons: PersonTypes[],
+  nonReadNotifNumber: number,
+  readNotification: (id: number) => void,
+  readAllNotifications: () => void,
+  showDescription: number | null
+}
+
+/* --------------------------------- Context -------------------------------- */
+const NotificationCardContext = createContext({} as NotificationCardContextTypes)
 
 export function useNotificationCard() {
   return useContext(NotificationCardContext)
 }
 
-export function NotificationCardProvider({ children }) {
+export function NotificationCardProvider({ children }: NotificationCardProviderProps) {
   /* ---------------------------------- State --------------------------------- */
-  const [persons, setPersons] = useState(Persons)
-  const [showDescription, setShowDescription] = useState(null)
+  const [persons, setPersons] = useState<PersonTypes[]>(Persons)
+  const [showDescription, setShowDescription] = useState<number | null>(null)
 
   /* -------------------------------- Functions ------------------------------- */
   const nonReadNotifNumber = (function calculateNonReadNotif() {
@@ -23,7 +48,7 @@ export function NotificationCardProvider({ children }) {
     return count
   })()
 
-  function readNotification(id) {
+  function readNotification(id: number) {
     setPersons(
       persons.map((person) => {
         if (person.id === id) {
