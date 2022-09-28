@@ -1,51 +1,13 @@
-import { useState } from 'react'
+import React from 'react'
 
-import Persons from '../data/data'
+import { useNotificationCard } from '../context/NotificationContext'
+
 import Notification from './Notification'
 
 function Notifications() {
-  /* ---------------------------------- State --------------------------------- */
-  const [persons, setPersons] = useState(Persons)
-  const [showDescription, setShowDescription] = useState(null)
-
-  /* -------------------------------- Functions ------------------------------- */
-  const nonReadNotifNumber = (function calculateNonReadNotif() {
-    let count = 0
-
-    persons.forEach((person) => {
-      if (!person.read) count++
-    })
-
-    return count
-  })()
-
-  function readNotification(id) {
-    setPersons(
-      persons.map((person) => {
-        if (person.id === id) {
-          person.read = true
-        }
-
-        if (showDescription === id) {
-          setShowDescription(null)
-        } else {
-          setShowDescription(id)
-        }
-
-        return person
-      })
-    )
-  }
-
-  function readAllNotifications() {
-    setPersons(
-      persons.map((person) => {
-        person.read = true
-
-        return person
-      })
-    )
-  }
+  /* --------------------------------- Context -------------------------------- */
+  const { nonReadNotifNumber, readAllNotifications, persons } =
+    useNotificationCard()
 
   /* ----------------------------------- DOM ---------------------------------- */
   return (
@@ -63,12 +25,7 @@ function Notifications() {
 
       {/* Main */}
       {persons.map((person) => (
-        <Notification
-          key={person.id}
-          person={person}
-          readNotification={readNotification}
-          showDescription={showDescription}
-        />
+        <Notification key={person.id} {...person} />
       ))}
     </div>
   )

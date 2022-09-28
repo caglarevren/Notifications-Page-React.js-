@@ -1,12 +1,12 @@
-import './App.scss'
+import { NotificationCardProvider } from './context/NotificationContext'
 
 import Notifications from './components/Notifications.jsx'
 
 function App() {
   return (
-    <div>
+    <NotificationCardProvider>
       <Notifications />
-    </div>
+    </NotificationCardProvider>
   )
 }
 
